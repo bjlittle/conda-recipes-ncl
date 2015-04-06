@@ -1,0 +1,24 @@
+package:
+  name: hdf5
+  version: "1.8.12"
+
+source:
+  fn: hdf5-1.8.12.tar.gz
+  url: http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.12/src/hdf5-1.8.12.tar.gz  # [linux]
+  sha1: 965d954d596cfa694f3260856a6406ea69e46e68
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    - zlib
+    - szip
+  run:
+    - zlib
+    - szip
+
+test:
+  commands:
+    - exit $(test -f ${PREFIX}/lib/libhdf5.so)

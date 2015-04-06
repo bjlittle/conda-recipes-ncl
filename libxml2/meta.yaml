@@ -1,0 +1,23 @@
+package:
+  name: libxml2
+  version: "2.9.2"
+
+source:
+  fn:  libxml2-2.9.2.tar.gz
+  url: ftp://xmlsoft.org/libxml2/libxml2-2.9.2.tar.gz  # [linux]
+  sha1: f46a37ea6d869f702e03f393c376760f3cbee673
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    - zlib
+  run:
+    - zlib
+
+test:
+  commands:
+    - exit $(test -f ${PREFIX}/bin/xmllint)
+    - xmllint --help

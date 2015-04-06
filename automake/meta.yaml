@@ -1,0 +1,27 @@
+package:
+  name: automake
+  version: "1.15"
+
+source:
+  fn: automake-1.15.tar.xz
+  url: ftp://ftp.gnu.org/gnu/automake/automake-1.15.tar.xz  # [linux]
+  sha1: c279b35ca6c410809dac8ade143b805fb48b7655
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    - m4
+    - autoconf
+#    - perl
+  run:
+    - m4
+    - autoconf
+#    - perl
+
+test:
+  commands:
+    - exit $(test -f ${PREFIX}/bin/automake)
+    - automake --help

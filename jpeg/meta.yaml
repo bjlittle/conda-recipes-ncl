@@ -1,0 +1,17 @@
+package:
+  name: jpeg
+  version: "6b"
+
+source:
+  fn: jpegsrc.v6b.tar.gz
+  url: http://sourceforge.net/projects/libjpeg/files/libjpeg/6b/jpegsrc.v6b.tar.gz  # [linux]
+  sha1: 7079f0d6c42fad0cfba382cf6ad322add1ace8f9
+  
+build:
+  number: 0 
+  detect_binary_files_with_prefix: true
+
+test:
+  commands:
+    - exit $(test -f ${PREFIX}/bin/cjpeg)
+    - cjpeg --help

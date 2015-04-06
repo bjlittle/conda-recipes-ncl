@@ -1,0 +1,29 @@
+package:
+  name: fontconfig
+  version: "2.11.93"
+
+source:
+  fn: fontconfig-2.11.93.tar.gz
+  url: http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.93.tar.gz  # [linux]
+  sha1: c75bad3bb2ce510d1f5b0f2cd4e795242cca6d59
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    - freetype
+    - libxml2
+    - libpng ==1.2.52
+    - zlib
+  run:
+    - freetype
+    - libxml2
+    - libpng ==1.2.52
+    - zlib
+
+test:
+  commands:
+    - exit $(test -f ${PREFIX}/bin/fc-list)
+    - fc-list --help

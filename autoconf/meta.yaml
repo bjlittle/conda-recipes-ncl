@@ -1,0 +1,23 @@
+package:
+  name: autoconf
+  version: "2.69"
+
+source:
+  fn: autoconf-2.69.tar.xz
+  url: http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.xz  # [linux]
+  sha1: e891c3193029775e83e0534ac0ee0c4c711f6d23
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    - m4
+  run:
+    - m4
+
+test:
+  commands:
+    - exit $(test -f ${PREFIX}/bin/autoconf)
+    - autoconf --help
